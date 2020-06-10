@@ -13,10 +13,11 @@ import UsersService from './services/users'
  * @param accessToken Bitrix application Access Token. Do not specify in case inbound webhook endpoint used.
  */
 export default (restURI: string, accessToken?: string) => {
-  const { call, batch, list } = Client(restURI, accessToken)
+  const { call, batch, list, post } = Client(restURI, accessToken)
 
   return {
     call,
+    post,
     batch,
     list,
     companies: CompaniesService({ call, list }),
